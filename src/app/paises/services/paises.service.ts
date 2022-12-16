@@ -30,7 +30,7 @@ export class PaisesService {
       return of(null) 
     }
 
-    const url = `${ this.baseUrl }/alpha?codes=${ codigo }`;
+    const url = `${ this.baseUrl }/alpha/${ codigo }`;
     return this.http.get<Pais[]>( url );
   }
 
@@ -39,7 +39,7 @@ export class PaisesService {
     return this.http.get<PaisSmall>( url );
   }
 
-  getPaisesPorCodigo( borders: string[] ): Observable<PaisSmall[]> {
+  getPaisesPorCodigos( borders: string[] ): Observable<PaisSmall[]> {
     if ( !borders ) {
       return of([]);
     }
